@@ -11,7 +11,7 @@ const TextField = ({ label, ...props }) => {
       {...props}
       error={meta.error}
       helperText={meta.error}
-      success={meta.isValid}
+      success={field.checked}
     />
   );
 };
