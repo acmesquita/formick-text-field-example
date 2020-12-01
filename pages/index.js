@@ -9,6 +9,20 @@ export default function Home() {
     alert(JSON.stringify(values, null, 2))
   }
 
+  const validateForm = (values) => {
+    const errors = {};  
+    if (!values.name) {
+      errors.name = 'Required';
+    }
+
+    if (!values.age && values.age < 0) {
+      errors.age = 'Não é possível colocar valores negativos para a idade';
+    } else if (!values.age && values.age > 10) {
+      errors.age = 'Não é possível colocar valores acima de 10 anos';
+    }
+    return errors;
+  };
+
   return (
     <div>
       <Head>
@@ -17,15 +31,16 @@ export default function Home() {
       </Head>
 
       <main>
-          <Form
-            initialValues={{ name:'Candida', age: 0 }}
-            onSubmit={handleSubmit}
-          >
-            <TextField name="name" label="Name" />
-            <TextField name="age" label="Age" type="number" />
+        <Form
+          initialValues={{ name: 'Candida', age: 0 }}
+          onSubmit={handleSubmit}
+          validate={validateForm}
+        >
+          <TextField name="name" label="Name" />
+          <TextField name="age" label="Age" type="number" />
 
-            <Button type="submit" size="small">Enviar</Button>
-          </Form>
+          <Button type="submit" size="small">Enviar</Button>
+        </Form>
       </main>
     </div>
   )
