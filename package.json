@@ -12,6 +12,7 @@
     "next": "10.0.3",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "vindi-ds-components": "^1.1.20"
+    "vindi-ds-components": "^1.1.20",
+    "yup": "^0.31.1"
   }
 }
